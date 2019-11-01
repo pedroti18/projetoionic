@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro das Filias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #fc="ngForm" (ngSubmit)="onsubmit(fc)">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="filial.nome" name="nome" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descrição</ion-label>
+      <ion-input type="text" [(ngModel)]="filial.descricao" name="descricao" required></ion-input>
+    </ion-item>
+ 
+     <ion-item>
+      <ion-label position="floating">Endereco</ion-label>
+      <ion-input type="text" [(ngModel)]="filial.endereco" name="endereco" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Numero</ion-label>
+      <ion-input type="number" [(ngModel)]="filial.numero" name="numero" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Bairro</ion-label>
+      <ion-input type="text" [(ngModel)]="filial.bairro" name="bairro" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-button type="submit" color="primary">Salvar</ion-button>
+      <ion-button type="reset" color="danger" routerLink="/">Cancelar</ion-button>
+    </ion-item> 
+  </form>
+
+  <ion-content>
+    <div class="map" id="map_canvas"></div>
+  </ion-content>
+
+</ion-content>

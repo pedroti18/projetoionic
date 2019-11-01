@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro de Pedidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #fc="ngForm" (ngSubmit)="onsubmit(fc)">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="pedido.nome" name="nome" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input type="number" [(ngModel)]="pedido.telefone" name="telefone" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Endereço</ion-label>
+      <ion-input type="text" [(ngModel)]="pedido.endereco" name="endereco" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Número</ion-label>
+        <ion-input type="number" [(ngModel)]="pedido.numero" name="numero" required></ion-input>
+      </ion-item>
+    <ion-item>
+        <ion-label position="floating">Bairro</ion-label>
+        <ion-input type="text" [(ngModel)]="pedido.bairro" name="bairro" required></ion-input>
+      </ion-item>
+    <ion-item>
+      <ion-label>Categoria</ion-label>
+      <ion-select placeholder="Escolha a àrea" [(ngModel)]="pedido.categoria" name="categoria" required>
+        <ion-select-option value="Espiritual">Espiritual</ion-select-option>
+        <ion-select-option value="Casamento">Casamento</ion-select-option>
+        <ion-select-option value="Família">Família</ion-select-option>
+        <ion-select-option value="Saúde">Saúde</ion-select-option>
+        <ion-select-option value="Trabalho">Trabalho</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Escreva seu pedido</ion-label>
+      <ion-input type="text" [(ngModel)]="pedido.descricao" name="descricao" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-button type="submit" color="primary"routerLink="/tabs/listTela">Enviar</ion-button>
+      <ion-button type="reset" color="danger" routerLink="/tabs/listTela">Cancelar</ion-button>
+    </ion-item>
+  </form>
+
+  <ion-content>
+    <div class="map" id="map_canvas"></div>
+  </ion-content>
+
+</ion-content>

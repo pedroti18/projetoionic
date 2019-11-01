@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="tittle">
+      Nossas filias
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" routerLink="/tabs/addFilial">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list *ngIf="filias">
+    <ion-item-sliding *ngFor="let f of filias">
+      <ion-item-options side="start">
+        <ion-item-option color="" (click)="editar(f)">
+          <ion-icon slot="icon-only" name="create"></ion-icon>Atualizar
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item routerLink="/tabs/perfilFilial/{{f.key}}">
+        
+        <ion-label>{{ f.nome }}</ion-label>
+        <ion-label>{{ f.descricao }}</ion-label>
+
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="apagar(f)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>Delete
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-item>
+    <ion-button class="buttom" type="reset" color="danger" routerLink="/tabs/listTela">Voltar</ion-button>
+  </ion-item>
+
+  <ion-content>
